@@ -80,9 +80,7 @@ export const getElementCategory = () => {
   return async (dispatch: Dispatch) => {
     try {
       dispatch({ type: GET_ELEMENT_CATEGORY_LOADING });
-      const response: AxiosResponse = await api.get(
-        `/lookups/100/lookupvalues`
-      );
+      const response: AxiosResponse = await api.get(`/lookups/1/lookupvalues`);
       console.log(response);
       if (response.status === 200) {
         dispatch({
