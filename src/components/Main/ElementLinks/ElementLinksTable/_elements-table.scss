@@ -1,0 +1,171 @@
+$color_blue_navy: #2d416f;
+$color_white: #fff;
+$color_greyser: #cde1e3;
+$color_grey_light: #f4f6fb;
+$color_gray: #e2e2e2;
+$color_grey: #2d416f;
+$color_red_light: #fdf2f2;
+
+$color_red: #e05453;
+$color_green: #4baa79;
+$color_green_light: #f4faf7;
+
+.table {
+  margin-top: 16px;
+
+  &__head {
+    background-color: $color_blue_navy;
+    color: $color_white;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 16px 32px;
+    &--element {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      svg {
+        font-size: 16px;
+        margin-left: 7px;
+      }
+    }
+  }
+  &__content {
+    color: $color_blue_navy;
+    font-size: 14px;
+    font-weight: 400;
+    box-sizing: border-box;
+    &-element {
+      padding: 16px 32px;
+      border-bottom: 1px solid $color_greyser;
+    }
+    &--view {
+      color: $color_green;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+  &__footer {
+    padding: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $color_blue_navy;
+    font-weight: 700;
+    &--left {
+      display: flex;
+      align-items: center;
+      span:nth-child(2) {
+        margin-inline: 10px;
+      }
+    }
+    &--btns {
+      display: flex;
+      button {
+        background-color: $color_gray;
+        width: 40px;
+        border: 0;
+        font-size: 16px;
+        cursor: pointer;
+        height: 40px;
+        border-radius: 4px;
+        display: grid;
+        place-items: center;
+        color: $color_blue_navy;
+        &:not(:last-child) {
+          margin-right: 10px;
+        }
+      }
+      &-active {
+        background-color: $color_blue_navy !important;
+        color: $color_gray !important;
+      }
+    }
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  align-items: center;
+}
+.edit {
+  background-color: $color_grey_light;
+  color: $color_grey;
+  margin-right: 10px;
+}
+.delete {
+  background-color: $color_red_light;
+  color: $color_red;
+}
+.action-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.status {
+  width: 70px;
+  height: 27px;
+  border-radius: 40px;
+  display: grid;
+  place-items: center;
+  &__active {
+    background-color: $color_green_light;
+    color: #4baa79;
+  }
+  &__inactive {
+    background-color: $color_red_light;
+    color: $color_red;
+  }
+}
+.action-btn {
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  border: 1px solid $color_green;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  &__dot {
+    color: $color_green;
+    width: 2px;
+    height: 2px;
+    background-color: $color_green;
+  }
+  &__actions {
+    background-color: $color_white;
+    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    font-size: 12px;
+    position: absolute;
+    border-radius: 4px;
+    padding: 8px 10px;
+    min-width: 160px;
+    box-sizing: border-box;
+    bottom: 10px;
+    left: 10px;
+    z-index: 1;
+    &--delete {
+      color: $color_red;
+    }
+    div,
+    a {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid #f9f9f9;
+
+      svg {
+        font-size: 16px;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+.spinner-container {
+  display: grid;
+  place-items: center;
+}

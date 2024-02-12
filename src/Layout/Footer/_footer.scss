@@ -1,0 +1,15 @@
+$color_blue_navy: #2d416f;
+$color_white: #fff;
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: $color_blue_navy;
+  padding: 20px 40px;
+  color: $color_white;
+  font-size: 16px;
+  font-weight: 300;
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap");
+
+$color_blue_navy: #2d416f;
+$color_white: #fff;
+$color_grey: #e7e7e7;
+$color_grey_light: #f6f7f9;
+$color_grey_dark: #dfdfdf;
+$color_green: #4baa79;
+.header {
+  background-color: $color_white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $color_grey;
+  padding: 20px 16px;
+  font-family: "Poppins", sans-serif;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  box-sizing: border-box;
+
+  &__organization {
+    display: flex;
+    align-items: center;
+    &--org {
+      background-color: $color_grey;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      border-radius: 1px;
+      margin-right: 32px;
+    }
+    &--icon {
+      font-size: 30px;
+    }
+    &--icon-down {
+      font-size: 20px;
+    }
+    &--text {
+      margin-inline: 12px;
+      color: $color_blue_navy;
+      div:not(:last-child) {
+        font-weight: 500;
+        font-size: 14px;
+      }
+      div:not(:first-child) {
+        font-weight: 700;
+        font-size: 16px;
+      }
+    }
+    &--search {
+      //   position: relative;
+      display: flex;
+    }
+    &--input {
+      width: 350px;
+      height: 55px;
+      border: 1px solid $color_grey_dark;
+      border-top-left-radius: 6px;
+      border-bottom-left-radius: 6px;
+      outline: none;
+      padding-left: 23px;
+      box-sizing: border-box;
+    }
+    &--input::placeholder {
+      font-size: 16px;
+    }
+    &--icon-search {
+      background-color: #4baa79;
+      height: 55px;
+      border-top-right-radius: 6px;
+      border-bottom-right-radius: 6px;
+      display: grid;
+      place-items: center;
+      color: $color_white;
+      width: 50px;
+      font-size: 30px;
+    }
+  }
+  &__profile {
+    display: flex;
+    align-items: center;
+    &--notification {
+      margin-right: 20px;
+      font-size: 30px;
+    }
+    &--user {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    &--name {
+      color: $color_blue_navy;
+      div:not(:last-child) {
+        font-weight: 600;
+        font-size: 18px;
+      }
+      div:not(:first-child) {
+        font-weight: 400;
+        font-size: 16px;
+      }
+    }
+  }
+}

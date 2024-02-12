@@ -1,0 +1,13 @@
+$color_grey: #f4f6f8;
+
+.main-app {
+  background-color: $color_grey;
+  padding: 20px 40px;
+  margin-top: 112px;
+  margin-left: 302px;
+  min-height: 100vh;
+  flex: 1;
+  &__container {
+    background-color: #fff;
+  }
+}
