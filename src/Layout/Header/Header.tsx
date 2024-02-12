@@ -3,7 +3,7 @@ import "./_header.scss";
 import { GoHomeFill } from "react-icons/go";
 import { IoIosArrowDown, IoIosNotifications } from "react-icons/io";
 import { CiSearch } from "react-icons/ci";
-
+import user from "./../../assets/user.png";
 const Header = () => {
   return (
     <header className="header">
@@ -39,7 +39,7 @@ const Header = () => {
         <span className="header__profile--notification">
           <IoIosNotifications />
         </span>
-        <img alt="henry okoro" className="header__profile--user" />
+        <img alt="henry okoro" src={user} className="header__profile--user" />
 
         <span className="header__profile--name">
           <div>Henry Okoro</div>
