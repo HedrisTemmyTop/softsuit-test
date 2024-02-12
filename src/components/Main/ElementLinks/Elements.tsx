@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Alert from "../../Alert/Alert";
 import * as Actions from "../../../store/actions";
 import { RootState } from "../../../types/reducers";
-import { AppDispatch } from "../../../store/index.ts";
+import { AppDispatch } from "../../../store";
 
 const Elements: FC = () => {
   // State to manage the visibility of the modal and the element to delete

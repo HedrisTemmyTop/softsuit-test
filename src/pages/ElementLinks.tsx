@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getElement } from "../store/actions";
 import Spinner from "../shared/Spinner";
 import { RootState } from "../types/reducers";
-import { AppDispatch } from "../store/index.ts";
+import { AppDispatch } from "../store/index.js";
 import { ElementType } from "../types/createElement";
 
 const ElementLinksPage = () => {

@@ -1,8 +1,8 @@
 import actionType from "../../types/actionType";
-import { createElTypes } from "../../types/createElement";
+// import { createElTypes } from "../../types/createElement";
 import * as Actions from "./../actions";
 
-const initialState: createElTypes = {
+const initialState = {
   name: "",
   type: "Create",
   classification: {
