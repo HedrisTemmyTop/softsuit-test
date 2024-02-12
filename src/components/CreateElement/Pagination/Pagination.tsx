@@ -70,6 +70,7 @@ const Pagination: FC<PropTypes> = ({
             }`}
             onClick={() => onPageChange(page)}
             disabled={currentPage === page}
+            key={page}
           >
             <span>{page}</span>
           </button>

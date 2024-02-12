@@ -15,6 +15,7 @@ import { RootState } from "../../../../types/reducers";
 import { AppDispatch } from "../../../../store";
 import Pagination from "../../../CreateElement/Pagination/Pagination";
 import { optionTypes } from "../../../../types/selectTypes";
+import empty from "./../../../../assets/empty.svg";
 
 const header: string[] = [
   "Name",
@@ -116,8 +117,12 @@ const ElementsTable: FC<PropTypes> = ({ onOpen, onDelete }) => {
       </div>
     );
   }
-  if (!isLoading && elementsTyped.length === 0 && !error) {
-    content = <div>Empty el</div>;
+  if (!isLoading && elementsTyped.length >= 0 && !error) {
+    content = (
+      <div className="spinner-container">
+        <img src={empty} alt="empty" />
+      </div>
+    );
   }
   if (!isLoading && elementsTyped.length > 0 && !error) {
     content = (
