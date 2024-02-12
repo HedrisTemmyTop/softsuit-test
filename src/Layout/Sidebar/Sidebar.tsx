@@ -12,6 +12,7 @@ import { BiSolidDashboard } from "react-icons/bi";
 import { PiTreeStructureFill } from "react-icons/pi";
 import { IoSettingsSharp } from "react-icons/io5";
 import { TbLogout } from "react-icons/tb";
+import { Link as Links } from "react-router-dom";
 
 const mainLink: Link[] = [
   {
@@ -99,10 +100,10 @@ const Sidebar: FC = () => {
                 </span>
               </div>
               {element && (
-                <div className="sidebar__item--summary">
+                <Links className="sidebar__item--summary" to="/elements">
                   <div className="active__element">Elements</div>
                   <div>Balances</div>
-                </div>
+                </Links>
               )}
             </li>
             <li className="sidebar__item">

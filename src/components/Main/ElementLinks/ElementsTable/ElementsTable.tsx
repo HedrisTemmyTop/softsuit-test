@@ -37,8 +37,8 @@ const ElementsTable: FC<PropTypes> = ({ onOpen, onDelete }) => {
   // state to manage pagination
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [rowsPerPage, setRowsPerPage] = useState<optionTypes>({
-    label: 1,
-    value: 1,
+    label: 10,
+    value: 10,
   }); // Set your desired default value // Destructure values from Redux state
   const { isLoading, error, elements } = useSelector(
     (state: RootState) => state.elementsReducer
@@ -68,10 +68,10 @@ const ElementsTable: FC<PropTypes> = ({ onOpen, onDelete }) => {
   console.log(currentItems);
   // Define options for rows per page in the table
   const rowsPerPageOptions = [
-    { value: 1, label: 1 },
-    { value: 2, label: 2 },
-    { value: 3, label: 3 },
-    { value: 4, label: 4 },
+    { value: 10, label: 10 },
+    { value: 20, label: 20 },
+    { value: 50, label: 50 },
+    { value: 100, label: 100 },
   ];
   const last = header.length - 1;
 
