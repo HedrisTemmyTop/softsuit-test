@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, Fragment, useEffect } from "react";
+import { ChangeEvent, FC, Fragment, useEffect } from "react";
 import "./../_create-element.scss";
 import Select, { SingleValue } from "react-select";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,6 +6,11 @@ import * as Actions from "./../../../store/actions";
 import { RootState } from "../../../types/reducers";
 import { AppDispatch } from "../../../store";
 import { optionTypes } from "../../../types/selectTypes";
+
+interface FormatType {
+  name: string;
+  id: string;
+}
 
 const StepOne: FC = () => {
   const {
@@ -35,7 +40,7 @@ const StepOne: FC = () => {
   const dispatch: AppDispatch = useDispatch();
 
   // Format options for Select component
-  const formatOptions = (options): optionTypes[] => {
+  const formatOptions = (options: FormatType[]): optionTypes[] => {
     return options.map((el) => ({
       label: el.name,
       value: +el.id,
@@ -112,7 +117,7 @@ const StepOne: FC = () => {
           isLoading={loadingClassification}
           placeholder="Select Classification"
           onChange={(option: SingleValue<optionTypes>) =>
-            handleSelect(option, Actions.CHANGE_CLASSIFICATION)
+            handleSelect(option as optionTypes, Actions.CHANGE_CLASSIFICATION)
           }
           value={classification}
         />

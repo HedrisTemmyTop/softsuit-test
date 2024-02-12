@@ -1,3 +1,4 @@
+import actionType from "../../types/actionType";
 import * as Actions from "./../actions";
 
 const initialState = {
@@ -94,7 +95,10 @@ const initialState = {
   step: 0,
 };
 
-const createElementLinksReducer = (state = initialState, action) => {
+const createElementLinksReducer = (
+  state = initialState,
+  action: actionType
+) => {
   switch (action.type) {
     case Actions.CHANGE_ELEMENT_STEP: {
       return {

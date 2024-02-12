@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 
+// Interface defining the default configuration
 interface Defaults {
   baseURL: string;
   headers: () => Record<string, string>;
@@ -11,10 +12,12 @@ interface Defaults {
   };
 }
 
-interface ApiResponse<T> {
+// Interface defining the structure of API responses
+export interface ApiResponse<T> {
   data: T;
 }
 
+// Default configuration values
 const defaults: Defaults = {
   baseURL: "https://650af6bedfd73d1fab094cf7.mockapi.io",
   headers: () => ({
@@ -28,10 +31,11 @@ const defaults: Defaults = {
   },
 };
 
+// Function to make API requests
 const api = <T>(
   method: AxiosRequestConfig["method"],
   url: string,
-  variables?: Record<string, unknown>
+  variables?: T
 ): Promise<T> =>
   new Promise<T>((resolve, reject) => {
     axios({
@@ -42,7 +46,7 @@ const api = <T>(
       data: method !== "get" ? variables : undefined,
     }).then(
       (response: AxiosResponse<ApiResponse<T>>) => {
-        resolve(response); // Extracting data from ApiResponse
+        resolve(response as T); // Extracting data from ApiResponse
       },
       (error) => {
         console.log(error);
@@ -55,15 +59,13 @@ const api = <T>(
     );
   });
 
-export default {
-  get: <T>(url: string, variables?: Record<string, unknown>) =>
-    api<T>("get", url, variables),
-  post: <T>(url: string, variables?: Record<string, unknown>) =>
-    api<T>("post", url, variables),
-  put: <T>(url: string, variables?: Record<string, unknown>) =>
-    api<T>("put", url, variables),
-  patch: <T>(url: string, variables?: Record<string, unknown>) =>
-    api<T>("patch", url, variables),
-  delete: <T>(url: string, variables?: Record<string, unknown>) =>
-    api<T>("delete", url, variables),
+// Exporting functions for common HTTP methods
+const apiService = {
+  get: <T>(url: string, variables?: T) => api<T>("get", url, variables),
+  post: <T>(url: string, variables?: T) => api<T>("post", url, variables),
+  put: <T>(url: string, variables?: T) => api<T>("put", url, variables),
+  patch: <T>(url: string, variables?: T) => api<T>("patch", url, variables),
+  delete: <T>(url: string, variables?: T) => api<T>("delete", url, variables),
 };
+
+export default apiService;

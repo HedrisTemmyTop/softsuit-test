@@ -64,7 +64,7 @@ export const getElementClassification = () => {
       } else {
         dispatch({
           type: GET_ELEMENT_CLASSIFICATION_ERROR,
-          payload: response.data.message,
+          payload: response.data,
         });
       }
     } catch (error: any) {
@@ -80,7 +80,9 @@ export const getElementCategory = () => {
   return async (dispatch: Dispatch) => {
     try {
       dispatch({ type: GET_ELEMENT_CATEGORY_LOADING });
-      const response: AxiosResponse = await api.get(`/lookups/1/lookupvalues`);
+      const response: AxiosResponse = await api.get(
+        `/lookups/100/lookupvalues`
+      );
       console.log(response);
       if (response.status === 200) {
         dispatch({
@@ -90,7 +92,7 @@ export const getElementCategory = () => {
       } else {
         dispatch({
           type: GET_ELEMENT_CATEGORY_ERROR,
-          payload: response.data.message,
+          payload: response.data,
         });
       }
     } catch (error: any) {
@@ -102,6 +104,7 @@ export const getElementCategory = () => {
     }
   };
 };
+
 export const getElementPayrun = () => {
   return async (dispatch: Dispatch) => {
     try {
@@ -118,7 +121,7 @@ export const getElementPayrun = () => {
       } else {
         dispatch({
           type: GET_ELEMENT_PAYRUN_ERROR,
-          payload: response.data.message,
+          payload: response.data,
         });
       }
     } catch (error: any) {
@@ -135,7 +138,7 @@ export const submitElementHandler = (payload: PayloadType) => {
   return async (dispatch: Dispatch) => {
     try {
       dispatch({ type: CREATE_ELEMENT_LOADING });
-      const response: AxiosResponse = await api.post("/elements", payload);
+      const response: any = await api.post("/elements", payload);
       console.log(response);
       if (response.status === 201) {
         dispatch({
@@ -160,7 +163,7 @@ export const editElementHandler = (payload: PayloadType, id: string) => {
   return async (dispatch: Dispatch) => {
     try {
       dispatch({ type: CREATE_ELEMENT_LOADING });
-      const response: AxiosResponse = await api.put(`/elements/${id}`, payload);
+      const response: any = await api.put(`/elements/${id}`, payload);
       console.log(response);
       if (response.status === 200) {
         dispatch({

@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
-import Select from "react-select";
+import Select, { SingleValue } from "react-select";
 import { optionTypes } from "../../../types/selectTypes";
 interface PropTypes {
   currentPage: number;
@@ -48,7 +48,9 @@ const Pagination: FC<PropTypes> = ({
             classNamePrefix="select"
             defaultValue={rowsPerPageOptions[0]}
             options={rowsPerPageOptions}
-            onChange={(selected) => onRowsPerPageChange(selected)}
+            onChange={(selected: SingleValue<optionTypes>) =>
+              onRowsPerPageChange(selected as optionTypes)
+            }
             value={rowsPerPage}
           />
         </span>
