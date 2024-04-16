@@ -13,9 +13,9 @@ interface Defaults {
 }
 
 // Interface defining the structure of API responses
-export interface ApiResponse<T> {
-  data: T;
-}
+// export interface ApiResponse<T> {
+//   data: T;
+// }
 
 // Default configuration values
 const defaults: Defaults = {
@@ -45,7 +45,7 @@ const api = <T>(
       params: method === "get" ? variables : undefined,
       data: method !== "get" ? variables : undefined,
     }).then(
-      (response: AxiosResponse<ApiResponse<T>>) => {
+      (response: AxiosResponse) => {
         resolve(response as T); // Extracting data from ApiResponse
       },
       (error) => {
